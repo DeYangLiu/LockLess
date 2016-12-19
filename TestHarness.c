@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #define LOG(fmt, ...) \
-	fprintf(stdout, "[%lx %s %d]"fmt, pthread_self(), __FUNCTION__, __LINE__,  ##__VA_ARGS__); 
+	fprintf(stdout, "[%lx %s %d]"fmt, (unsigned long)pthread_self(), __FUNCTION__, __LINE__,  ##__VA_ARGS__); 
 
 
 #define MAX_KEY 9000
@@ -76,7 +76,7 @@ int main(int ac, char **av)
 		seed = 0x5855e3f7;// for 4 threads, MAX_KEY=10000
 	}
 	
-	LOG("seed 0x%lx\n", seed);
+	LOG("seed 0x%lx\n", (unsigned long)seed);
 	
 	srand(seed);
 	

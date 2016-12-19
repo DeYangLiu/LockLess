@@ -17,7 +17,7 @@
 #endif
 
 #define LOG(fmt, ...) \
-	fprintf(stdout, "[%lx %s %d]"fmt, pthread_self(), __FUNCTION__, __LINE__,  ##__VA_ARGS__); 
+	fprintf(stdout, "[%lx %s %d]"fmt, (unsigned long)pthread_self(), __FUNCTION__, __LINE__,  ##__VA_ARGS__); 
 
 
 struct Node{
